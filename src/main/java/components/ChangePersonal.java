@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.AbsBasePages;
 
 import java.time.Duration;
 
@@ -19,7 +20,8 @@ public class ChangePersonal extends StartModalWindow{
     @FindBy(css = "b[class='header2-menu__dropdown-text_name']")
     private WebElement myAccount;
 
-    Actions action = new Actions(driver);
+//     Actions action = new Actions(driver);
+
 
     public void GotoPersonalAccount() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver,(5));
