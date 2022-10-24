@@ -1,5 +1,6 @@
 package finalhomework;
 
+import components.ChangePersonal;
 import components.MainPage;
 import components.StartModalWindow;
 import data.DriverData;
@@ -33,9 +34,11 @@ public class CheckPrivateAccount_Test {
         driver.manage().window().maximize();
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
+        ChangePersonal changePersonal = new ChangePersonal(driver);
         mainPage.open();
         mainPage.clickRegistrationButton();
         startModalWindow.inputCreds();
+        changePersonal.GotoPersonalAccount();
 
 
 
