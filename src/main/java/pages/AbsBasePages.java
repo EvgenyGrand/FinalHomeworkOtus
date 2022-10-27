@@ -69,5 +69,13 @@ public abstract class AbsBasePages {
         explicitWait(elementSecond);
         elementSecond.click();
     }
+    public void scrolltoElement(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+    }
+    public void scrollToPicsel(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("scroll(0,1500);");
+    }
+
 }
 

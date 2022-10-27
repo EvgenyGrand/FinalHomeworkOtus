@@ -43,6 +43,8 @@ public class CheckPrivateAccount_Test {
         changePersonal.gotoPersonalAccount();
         inputPesonalInfo.sendFilds();
         inputPesonalInfo.sendDropDownMenu();
+        inputPesonalInfo.addContact();
+        inputPesonalInfo.clickSave();
 
 
 

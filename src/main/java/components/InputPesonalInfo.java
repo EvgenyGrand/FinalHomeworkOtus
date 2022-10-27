@@ -49,6 +49,22 @@ public class InputPesonalInfo extends AbsBasePages {
    @FindBy(css = "button[title='Ниже среднего (Pre-Intermediate)']")
    private WebElement changeLevel;
 
+   @FindBy(css = "button.lk-cv-block__action.lk-cv-block__action_md-no-spacing.js-formset-add")
+   private WebElement buttonAddContact;
+
+   @FindBy (css = "body > div.body-wrapper > div > div.js-lk-cv > div.container.container-padding-bottom > div.container__row > div.container__col.container__col_9.container__col_md-8.container__col_sm-12.container__col_border-left.lk-rightbar.print-block.print-wide > div > form > div:nth-child(2) > div.container__col.container__col_12 > div:nth-child(2) > div.js-formset > div > div:nth-child(3) > div.container__col.container__col_9.container__col_ssm-12 > div > div > div > label > div")
+   private WebElement fieldChangeAMassager;
+
+   @FindBy(css = "body > div.body-wrapper > div > div.js-lk-cv > div.container.container-padding-bottom > div.container__row > div.container__col.container__col_9.container__col_md-8.container__col_sm-12.container__col_border-left.lk-rightbar.print-block.print-wide > div > form > div:nth-child(2) > div.container__col.container__col_12 > div:nth-child(2) > div.js-formset > div > div:nth-child(3) > div.container__col.container__col_9.container__col_ssm-12 > div > div > div > div > div > button:nth-child(8)")
+   private WebElement contactWhatsapp;
+
+   @FindBy(css = "#id_contact-1-value")
+   private WebElement inputNumber;
+
+   @FindBy (css = "button[title='Сохранить и продолжить']")
+   private WebElement buttonSave;
+
+
 
 
 
@@ -70,7 +86,20 @@ public class InputPesonalInfo extends AbsBasePages {
        sendDropDownMenu(city,changeCity);
        sendDropDownMenu(englishLevel, changeLevel);
 
+  }
+  public void addContact(){
+      scrollToPicsel();
+      clickToElement(buttonAddContact);
+      explicitWait(fieldChangeAMassager);
+      clickToElement(fieldChangeAMassager);
+      explicitWait(contactWhatsapp);
+      clickToElement(contactWhatsapp);
+      fillField(inputNumber, "89218466331");
 
+  }
+  public void clickSave(){
+      scrolltoElement(buttonSave);
+      clickToElement(buttonSave);
   }
 
 }
