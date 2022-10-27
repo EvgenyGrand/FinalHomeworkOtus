@@ -20,13 +20,10 @@ public class ChangePersonal extends StartModalWindow{
     @FindBy(css = "b[class='header2-menu__dropdown-text_name']")
     private WebElement myAccount;
 
-//     Actions action = new Actions(driver);
 
 
-    public void GotoPersonalAccount() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver,(5));
-        wait.until(ExpectedConditions.visibilityOf(dropdownlist));
-        action.moveToElement(dropdownlist).moveToElement(myAccount).click().build().perform();
-
+    public void gotoPersonalAccount() throws InterruptedException {
+        explicitWait(dropdownlist,5);
+        moveToElement(dropdownlist,myAccount);
     }
 }

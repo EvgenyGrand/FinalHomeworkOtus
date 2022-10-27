@@ -1,6 +1,7 @@
 package finalhomework;
 
 import components.ChangePersonal;
+import components.InputPesonalInfo;
 import components.MainPage;
 import components.StartModalWindow;
 import data.DriverData;
@@ -35,22 +36,25 @@ public class CheckPrivateAccount_Test {
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
         ChangePersonal changePersonal = new ChangePersonal(driver);
+        InputPesonalInfo inputPesonalInfo = new InputPesonalInfo(driver);
         mainPage.open();
         mainPage.clickRegistrationButton();
         startModalWindow.inputCreds();
-        changePersonal.GotoPersonalAccount();
+        changePersonal.gotoPersonalAccount();
+        inputPesonalInfo.sendFilds();
 
-
-
-    }
-
-    @AfterEach
-    public void close() {
-        if (this.driver != null) {
-            this.driver.close();
-            this.driver.quit();
-        }
 
 
     }
 }
+
+//    @AfterEach
+//    public void close() {
+//        if (this.driver != null) {
+//            this.driver.close();
+//            this.driver.quit();
+//        }
+
+
+
+

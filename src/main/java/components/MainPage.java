@@ -9,10 +9,12 @@ public class MainPage extends AbsBasePages {
 
     public MainPage(WebDriver driver) {
         super(driver);
+
     }
 
     @FindBy(xpath = "//*[@class = 'header2__auth js-open-modal']")
     private WebElement registrationButton;
+
 
     public void clickRegistrationButton() throws InterruptedException {
         registrationButton.click();

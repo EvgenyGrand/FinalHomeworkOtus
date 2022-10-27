@@ -21,12 +21,9 @@ public class StartModalWindow extends MainPage {
     private WebElement buttonLK;
 
     public void inputCreds(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.visibilityOf(login));
-        login.clear();
-        login.sendKeys(inputLogin());
-        password.clear();
-        password.sendKeys(inputPassword());
+        explicitWait(login,5);
+        fillField(login,inputLogin());
+        fillField(password,inputPassword());
         buttonLK.click();
     }
 }
