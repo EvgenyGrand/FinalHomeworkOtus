@@ -17,6 +17,6 @@ public class MainPage extends AbsBasePages {
 
 
     public void clickRegistrationButton() throws InterruptedException {
-        registrationButton.click();
+        clickToElement(registrationButton);
     }
 }

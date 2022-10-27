@@ -28,12 +28,35 @@ public class InputPesonalInfo extends AbsBasePages {
    @FindBy (id = "id_blog_name")
     private WebElement idBlogName;
 
+   @FindBy(id = "input[title='День рождения")
+   private WebElement dayOfBirth;
+
+   @FindBy (css = "div.dib > div > label > div")
+   private WebElement country;
+
+   @FindBy (css = "button[title='Россия']")
+   private WebElement changeCountry;
+
+
+
   public void sendFilds() throws InterruptedException {
-      fillField(fname,"Евгений");
+
+      //Заполнение полей
+
+      fillField(fname, "Евгений");
       fillField(lname, "Чистяков");
-      fillField(nameLatin,"Evgenii");
+      fillField(nameLatin, "Evgenii");
       fillField(lNAmeLatin, "Chistyakov");
       fillField(idBlogName, "Евгений");
+//      fillField(dayOfBirth, "20.06.1988");
+  }
+
+   public void sendCountry(){
+      clickToElement(country);
+      explicitWait(changeCountry);
+      clickToElement(changeCountry);
+
+
   }
 
 }

@@ -23,7 +23,7 @@ public class ChangePersonal extends StartModalWindow{
 
 
     public void gotoPersonalAccount() throws InterruptedException {
-        explicitWait(dropdownlist,5);
+        explicitWait(dropdownlist);
         moveToElement(dropdownlist,myAccount);
     }
 }

@@ -21,9 +21,9 @@ public class StartModalWindow extends MainPage {
     private WebElement buttonLK;
 
     public void inputCreds(){
-        explicitWait(login,5);
+        explicitWait(login);
         fillField(login,inputLogin());
         fillField(password,inputPassword());
-        buttonLK.click();
+        clickToElement(buttonLK);
     }
 }

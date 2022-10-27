@@ -14,6 +14,7 @@ public abstract class AbsBasePages {
         private String hostname = System.getProperty("base.url");
         private String login = System.getProperty("login");
         private String password = System.getProperty("password");
+        private int explisityWait = 5;
 
 
         protected WebDriver driver;
@@ -40,8 +41,8 @@ public abstract class AbsBasePages {
             return password;
         }
 
-    public void explicitWait(WebElement element, int explisitTime) {
-        WebDriverWait wait = new WebDriverWait(driver, explisitTime);
+    public void explicitWait(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, explisityWait);
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
@@ -54,6 +55,9 @@ public abstract class AbsBasePages {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
             element.clear();
             element.sendKeys(input);
+    }
+    public void clickToElement(WebElement element){
+            element.click();
     }
     }
 
