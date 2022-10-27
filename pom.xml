@@ -25,6 +25,7 @@
         <base.url>https://otus.ru</base.url>
         <login>Evgeny.Grand@mail.ru</login>
         <password>Lufthansa12</password>
+        <explisityWait>5</explisityWait>
         <test.project.language>RU</test.project.language>
 
         <webdriver.timeouts.implicitlywait>5000</webdriver.timeouts.implicitlywait>
@@ -101,6 +102,7 @@
                         <base.url>${base.url}</base.url>
                         <login>${login}</login>
                         <password>${password}</password>
+                        <explisityWait>${explisityWait}</explisityWait>
                         <test.project.status>test</test.project.status>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>

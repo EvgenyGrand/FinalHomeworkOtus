@@ -14,7 +14,7 @@ public abstract class AbsBasePages {
         private String hostname = System.getProperty("base.url");
         private String login = System.getProperty("login");
         private String password = System.getProperty("password");
-        private int explisityWait = 5;
+        private String explisityWait = System.getProperty("explisityWait");
 
 
         protected WebDriver driver;
@@ -42,7 +42,7 @@ public abstract class AbsBasePages {
         }
 
     public void explicitWait(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, explisityWait);
+        WebDriverWait wait = new WebDriverWait(driver,Integer.parseInt(explisityWait));
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
