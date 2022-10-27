@@ -11,53 +11,63 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class AbsBasePages {
 
 
-        private String hostname = System.getProperty("base.url");
-        private String login = System.getProperty("login");
-        private String password = System.getProperty("password");
-        private String explisityWait = System.getProperty("explisityWait");
+    private String hostname = System.getProperty("base.url");
+    private String login = System.getProperty("login");
+    private String password = System.getProperty("password");
+    private String explisityWait = System.getProperty("explisityWait");
 
 
-        protected WebDriver driver;
-        protected Actions action;
+    protected WebDriver driver;
+    protected Actions action;
 
-        public AbsBasePages(WebDriver driver){
-            this.driver=driver;
-            this.action = new Actions(driver);
+    public AbsBasePages(WebDriver driver) {
+        this.driver = driver;
+        this.action = new Actions(driver);
 
-            PageFactory.initElements(driver, this);
-        }
+        PageFactory.initElements(driver, this);
+    }
 
 
-    public void open(){
-            driver.get(hostname);
-        }
+    public void open() {
+        driver.get(hostname);
+    }
 
-        public String inputLogin(){
-            System.getProperty(login);
-            return login;
-        }
-        public String inputPassword(){
-            System.getProperty(password);
-            return password;
-        }
+    public String inputLogin() {
+        System.getProperty(login);
+        return login;
+    }
+
+    public String inputPassword() {
+        System.getProperty(password);
+        return password;
+    }
 
     public void explicitWait(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver,Integer.parseInt(explisityWait));
+        WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(explisityWait));
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 
-    public void moveToElement(WebElement elementFirst, WebElement elementSecond){
+    public void moveToElement(WebElement elementFirst, WebElement elementSecond) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elementFirst);
         action.moveToElement(elementFirst).moveToElement(elementSecond).click().build().perform();
     }
-    public void fillField(WebElement element, String input){
+
+    public void fillField(WebElement element, String input) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-            element.clear();
-            element.sendKeys(input);
+        element.clear();
+        element.sendKeys(input);
     }
-    public void clickToElement(WebElement element){
-            element.click();
+
+    public void clickToElement(WebElement element) {
+        element.click();
     }
+
+    public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
+        Thread.sleep(2000);
+        elementFirst.click();
+        explicitWait(elementSecond);
+        elementSecond.click();
     }
+}
 

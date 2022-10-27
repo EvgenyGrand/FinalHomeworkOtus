@@ -42,7 +42,8 @@ public class CheckPrivateAccount_Test {
         startModalWindow.inputCreds();
         changePersonal.gotoPersonalAccount();
         inputPesonalInfo.sendFilds();
-        inputPesonalInfo.sendCountry();
+        inputPesonalInfo.sendDropDownMenu();
+
 
 
 

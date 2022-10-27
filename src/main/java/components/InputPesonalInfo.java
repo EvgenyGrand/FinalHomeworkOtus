@@ -31,11 +31,24 @@ public class InputPesonalInfo extends AbsBasePages {
    @FindBy(id = "input[title='День рождения")
    private WebElement dayOfBirth;
 
-   @FindBy (css = "div.dib > div > label > div")
+   @FindBy (css = "body > div.body-wrapper > div > div.js-lk-cv > div.container.container-padding-bottom > div.container__row > div.container__col.container__col_9.container__col_md-8.container__col_sm-12.container__col_border-left.lk-rightbar.print-block.print-wide > div > form > div:nth-child(2) > div.container__col.container__col_12 > div:nth-child(1) > div > div.container__col.container__col_9.container__col_ssm-12 > div:nth-child(1) > div.container__col.container__col_9.container__col_md-8.container__col_middle > div > label > div")
    private WebElement country;
 
    @FindBy (css = "button[title='Россия']")
    private WebElement changeCountry;
+
+   @FindBy(css = "body > div.body-wrapper > div > div.js-lk-cv > div.container.container-padding-bottom > div.container__row > div.container__col.container__col_9.container__col_md-8.container__col_sm-12.container__col_border-left.lk-rightbar.print-block.print-wide > div > form > div:nth-child(2) > div.container__col.container__col_12 > div:nth-child(1) > div > div.container__col.container__col_9.container__col_ssm-12 > div:nth-child(2) > div.container__col.container__col_9.container__col_md-8.container__col_middle > div > label > div")
+   private WebElement city;
+
+   @FindBy(css = "button[title='Санкт-Петербург']")
+   private WebElement changeCity;
+
+   @FindBy (css = "body > div.body-wrapper > div > div.js-lk-cv > div.container.container-padding-bottom > div.container__row > div.container__col.container__col_9.container__col_md-8.container__col_sm-12.container__col_border-left.lk-rightbar.print-block.print-wide > div > form > div:nth-child(2) > div.container__col.container__col_12 > div:nth-child(1) > div > div.container__col.container__col_9.container__col_ssm-12 > div:nth-child(3) > div.container__col.container__col_9.container__col_md-8.container__col_middle > div > label > div")
+   private WebElement englishLevel;
+
+   @FindBy(css = "button[title='Ниже среднего (Pre-Intermediate)']")
+   private WebElement changeLevel;
+
 
 
 
@@ -51,10 +64,11 @@ public class InputPesonalInfo extends AbsBasePages {
 //      fillField(dayOfBirth, "20.06.1988");
   }
 
-   public void sendCountry(){
-      clickToElement(country);
-      explicitWait(changeCountry);
-      clickToElement(changeCountry);
+
+   public void sendDropDownMenu() throws InterruptedException {
+       sendDropDownMenu(country, changeCountry);
+       sendDropDownMenu(city,changeCity);
+       sendDropDownMenu(englishLevel, changeLevel);
 
 
   }
