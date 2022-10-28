@@ -65,6 +65,8 @@ public class InputPesonalInfo extends AbsBasePages {
     @FindBy (css = "button[title='Сохранить и продолжить']")
     private WebElement buttonSave;
 
+    @FindBy (css = "p[class ='lk-cv-block__header']")
+    private WebElement contactForScroll;
 
 
 
@@ -89,7 +91,7 @@ public class InputPesonalInfo extends AbsBasePages {
 
     }
     public void addContact(){
-        scrolltoElement(driver.findElement(By.cssSelector("p[class ='lk-cv-block__header']")));
+        scrolltoElement(contactForScroll);
         clickToElement(buttonAddContact);
         explicitWait(fieldChangeAMassager);
         clickToElement(fieldChangeAMassager);
