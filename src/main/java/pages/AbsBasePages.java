@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,19 +64,27 @@ public abstract class AbsBasePages {
         element.click();
     }
 
+    //    public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond, String inputName) throws InterruptedException {
+//        WebDriverWait wait = new WebDriverWait(driver, 5);
+//        wait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(driver.findElement(By.xpath(String.format("//div[contains(@class, 'select')]//input[@name='%s']", inputName))),"disabled","disabled")));
+//        wait.until(ExpectedConditions.and(
+//                ExpectedConditions.stalenessOf(driver.findElement(By.xpath(String.format("//div[contains(@class, 'select')][.//input[@name='%s']]",inputName))))));
+//        elementFirst.click();
+//        explicitWait(elementSecond);
+//        elementSecond.click();
+//    }
     public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
         Thread.sleep(2000);
         elementFirst.click();
         explicitWait(elementSecond);
         elementSecond.click();
-    }
-    public void scrolltoElement(WebElement element){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-    }
-    public void scrollToPicsel(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scroll(0,1500);");
+
     }
 
-}
+        public void scrolltoElement (WebElement element){
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        }
+
+    }
+
 
