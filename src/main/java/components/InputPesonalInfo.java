@@ -104,5 +104,8 @@ public class InputPesonalInfo extends AbsBasePages {
         scrolltoElement(buttonSave);
         clickToElement(buttonSave);
     }
+    public void closeSession(){
+        driver.quit();
+    }
 
 }

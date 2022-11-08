@@ -1,9 +1,6 @@
 package finalhomework;
 
-import components.ChangePersonal;
-import components.InputPesonalInfo;
-import components.MainPage;
-import components.StartModalWindow;
+import components.*;
 import data.DriverData;
 import exception.BrowserNotSupportException;
 import factory.WebDriverFactory;
@@ -13,9 +10,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import pages.AbsBasePages;
 
 public class CheckPrivateAccount_Test {
     private WebDriver driver;
+    private WebDriverFactory webDriverFactory = new WebDriverFactory();
 
     @BeforeAll
     public static void init() {
@@ -26,17 +25,18 @@ public class CheckPrivateAccount_Test {
     @BeforeEach
     public void initDriver() throws BrowserNotSupportException {
 
-        driver = new WebDriverFactory().getDriver(DriverData.CHROME, null);
+        driver = webDriverFactory.getDriver(DriverData.CHROME, null);
 
     }
 
     @Test
-    public void testCheckPrivateAccount() throws InterruptedException {
+    public void testCheckPrivateAccount() throws InterruptedException, BrowserNotSupportException {
         driver.manage().window().maximize();
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
         ChangePersonal changePersonal = new ChangePersonal(driver);
         InputPesonalInfo inputPesonalInfo = new InputPesonalInfo(driver);
+        CleanBrowser cleanBrowser = new CleanBrowser(driver);
         mainPage.open();
         mainPage.clickRegistrationButton();
         startModalWindow.inputCreds();
@@ -45,6 +45,10 @@ public class CheckPrivateAccount_Test {
         inputPesonalInfo.sendDropDownMenu();
         inputPesonalInfo.addContact();
         inputPesonalInfo.clickSave();
+        inputPesonalInfo.closeSession();
+        driver = webDriverFactory.getDriver(DriverData.CHROME, null);
+
+
 
 
 

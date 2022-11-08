@@ -21,17 +21,22 @@ public abstract class AbsBasePages {
     protected WebDriver driver;
     protected Actions action;
 
+
+
     public AbsBasePages(WebDriver driver) {
         this.driver = driver;
         this.action = new Actions(driver);
 
-        PageFactory.initElements(driver, this);
+
+        PageFactory.initElements(driver,  this);
+
     }
 
 
     public void open() {
         driver.get(hostname);
     }
+
 
     public String inputLogin() {
         System.getProperty(login);
@@ -74,7 +79,8 @@ public abstract class AbsBasePages {
 //        elementSecond.click();
 //    }
     public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
-        Thread.sleep(2000);
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(By.cssSelector("input[name='city']"), "disabled", "true")));
         elementFirst.click();
         explicitWait(elementSecond);
         elementSecond.click();
