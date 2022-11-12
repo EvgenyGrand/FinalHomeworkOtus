@@ -14,7 +14,7 @@ public class ChangePersonal extends StartModalWindow{
     public ChangePersonal(WebDriver driver) {
         super(driver);
     }
-    @FindBy(css = "div[class = 'header2-menu__item-wrapper.header2-menu__item-wrapper__username']")
+    @FindBy(css = "p.header2-menu__item-text.header2-menu__item-text__username")
     private WebElement dropdownlist;
 
     @FindBy(css = "b[class='header2-menu__dropdown-text_name']")

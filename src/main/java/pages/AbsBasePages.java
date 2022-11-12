@@ -69,23 +69,26 @@ public abstract class AbsBasePages {
         element.click();
     }
 
-    //    public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond, String inputName) throws InterruptedException {
-//        WebDriverWait wait = new WebDriverWait(driver, 5);
-//        wait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(driver.findElement(By.xpath(String.format("//div[contains(@class, 'select')]//input[@name='%s']", inputName))),"disabled","disabled")));
-//        wait.until(ExpectedConditions.and(
-//                ExpectedConditions.stalenessOf(driver.findElement(By.xpath(String.format("//div[contains(@class, 'select')][.//input[@name='%s']]",inputName))))));
-//        elementFirst.click();
-//        explicitWait(elementSecond);
-//        elementSecond.click();
-//    }
-    public void sendDropDownMenu(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
+
+    public void sendDropDownMenu1(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(By.cssSelector("input[name='city']"), "disabled", "true")));
+        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(By.cssSelector("input[name='country']"), "disabled", "true")));
         elementFirst.click();
         explicitWait(elementSecond);
         elementSecond.click();
-
     }
+//
+//    }
+//    public void sendDropDownMenu1(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
+//        Thread.sleep(5000);
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+//        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(elementFirst)));
+//        elementFirst.click();
+//        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(elementSecond)));
+//        explicitWait(elementSecond);
+//        elementSecond.click();
+//    }
+
 
         public void scrolltoElement (WebElement element){
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
