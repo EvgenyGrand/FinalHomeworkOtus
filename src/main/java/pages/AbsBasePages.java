@@ -13,8 +13,6 @@ public abstract class AbsBasePages {
 
 
     private String hostname = System.getProperty("base.url");
-    private String login = System.getProperty("login");
-    private String password = System.getProperty("password");
     private String explisityWait = System.getProperty("explisityWait");
 
 
@@ -38,15 +36,7 @@ public abstract class AbsBasePages {
     }
 
 
-    public String inputLogin() {
-        System.getProperty(login);
-        return login;
-    }
 
-    public String inputPassword() {
-        System.getProperty(password);
-        return password;
-    }
 
     public void explicitWait(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Integer.parseInt(explisityWait));
@@ -70,13 +60,13 @@ public abstract class AbsBasePages {
     }
 
 
-    public void sendDropDownMenu1(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(By.cssSelector("input[name='country']"), "disabled", "true")));
-        elementFirst.click();
-        explicitWait(elementSecond);
-        elementSecond.click();
-    }
+//    public void sendDropDownMenu1(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+//        webDriverWait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(By.cssSelector("input[name='country']"), "disabled", "true")));
+//        elementFirst.click();
+//        explicitWait(elementSecond);
+//        elementSecond.click();
+//    }
 //
 //    }
 //    public void sendDropDownMenu1(WebElement elementFirst, WebElement elementSecond) throws InterruptedException {

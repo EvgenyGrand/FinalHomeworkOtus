@@ -1,17 +1,12 @@
-package components;
+package components.dpopdownlkmenu;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AbsBasePages;
 
-import java.time.Duration;
-
-public class ChangePersonal extends StartModalWindow{
-    public ChangePersonal(WebDriver driver) {
+public class DropdawnLKMenu extends AbsBasePages implements IDropDownMenuLK {
+    public DropdawnLKMenu(WebDriver driver) {
         super(driver);
     }
     @FindBy(css = "p.header2-menu__item-text.header2-menu__item-text__username")
@@ -22,7 +17,7 @@ public class ChangePersonal extends StartModalWindow{
 
 
 
-    public void gotoPersonalAccount() throws InterruptedException {
+    public void gotoPersonalAccount() {
         explicitWait(dropdownlist);
         moveToElement(dropdownlist,myAccount);
     }

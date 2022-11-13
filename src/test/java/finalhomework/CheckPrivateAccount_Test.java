@@ -1,6 +1,8 @@
 package finalhomework;
 
 import components.*;
+import components.dpopdownlkmenu.DropdawnLKMenu;
+import components.modalwindows.StartModalWindow;
 import data.DriverData;
 import exception.BrowserNotSupportException;
 import factory.WebDriverFactory;
@@ -9,7 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import pages.MainPage;
+import pages.PageInputPesonalInfo;
 
 public class CheckPrivateAccount_Test {
     private WebDriver driver;
@@ -33,8 +36,8 @@ public class CheckPrivateAccount_Test {
         driver.manage().window().maximize();
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
-        ChangePersonal changePersonal = new ChangePersonal(driver);
-        InputPesonalInfo inputPesonalInfo = new InputPesonalInfo(driver);
+        DropdawnLKMenu changePersonal = new DropdawnLKMenu(driver);
+        PageInputPesonalInfo inputPesonalInfo = new PageInputPesonalInfo(driver);
         CleanBrowser cleanBrowser = new CleanBrowser(driver);
         mainPage.open();
         mainPage.clickRegistrationButton();
@@ -46,6 +49,7 @@ public class CheckPrivateAccount_Test {
         inputPesonalInfo.clickSave();
         inputPesonalInfo.closeSession();
         driver = webDriverFactory.getDriver(DriverData.CHROME, null);
+        mainPage.open();
 
 
 

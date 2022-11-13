@@ -1,14 +1,16 @@
-package components;
+package pages;
 
 
+import components.dpopdownlkmenu.DropdawnLKMenu;
+import components.dropdownmenuCCL.FieldDropdownMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.AbsBasePages;
 
-public class InputPesonalInfo extends AbsBasePages {
+public class PageInputPesonalInfo extends FieldDropdownMenu {
 
-    public InputPesonalInfo(WebDriver driver) {
+    public PageInputPesonalInfo(WebDriver driver) {
         super(driver);
 
     }
@@ -79,14 +81,15 @@ public class InputPesonalInfo extends AbsBasePages {
         fillField(nameLatin, "Evgenii");
         fillField(lNAmeLatin, "Chistyakov");
         fillField(idBlogName, "Евгений");
-//      fillField(dayOfBirth, "20.06.1988");
+
     }
 
 
     public void sendDropDownMenu() throws InterruptedException {
-        sendDropDownMenu1(country, changeCountry);
-//        sendDropDownMenu();
-//        sendDropDownMenu();
+        sendDropDownMenuCountry(country, changeCountry);
+        sendDropDownMenuCity(city, changeCity);
+        sendDropDownMenuLanguage(englishLevel,changeLevel);
+
 
     }
     public void addContact(){

@@ -1,12 +1,11 @@
-package components;
+package components.modalwindows;
 
+import components.inputcreds.InputCreds;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class StartModalWindow extends MainPage {
+public class StartModalWindow extends InputCreds implements IModalWindow {
 
     public StartModalWindow(WebDriver driver) {
         super(driver);
@@ -26,4 +25,10 @@ public class StartModalWindow extends MainPage {
         fillField(password,inputPassword());
         clickToElement(buttonLK);
     }
+
+    @Override
+    public void modalShouldNotBePresent() {
+
+    }
+
 }
