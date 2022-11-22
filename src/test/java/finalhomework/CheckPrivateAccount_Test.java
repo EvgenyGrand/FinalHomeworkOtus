@@ -1,15 +1,13 @@
 package finalhomework;
 
-import components.*;
+import components.cleanbrowser.CleanBrowser;
 import components.dpopdownlkmenu.DropdawnLKMenu;
 import components.modalwindows.StartModalWindow;
 import data.DriverData;
 import exception.BrowserNotSupportException;
 import factory.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import pages.PageInputPesonalInfo;
@@ -27,13 +25,13 @@ public class CheckPrivateAccount_Test {
     @BeforeEach
     public void initDriver() throws BrowserNotSupportException {
 
-         driver = webDriverFactory.getDriver(DriverData.CHROME, null);
+        driver = webDriverFactory.getDriver(DriverData.CHROME, null);
 
     }
 
     @Test
     public void testCheckPrivateAccount() throws InterruptedException, BrowserNotSupportException {
-//        driver.manage().window().maximize();
+
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
         DropdawnLKMenu changePersonal = new DropdawnLKMenu(driver);
@@ -56,21 +54,24 @@ public class CheckPrivateAccount_Test {
         mainPage.clickRegistrationButton();
         startModalWindow.inputCreds();
         changePersonal.gotoPersonalAccount();
-
-
-
-
+        inputPesonalInfo.CheckInputData();
 
 
     }
-}
 
-//    @AfterEach
-//    public void close() {
-//        if (this.driver != null) {
-//            this.driver.close();
-//            this.driver.quit();
-//        }
+        @AfterEach
+
+        public void close () {
+            if (this.driver != null) {
+                this.driver.close();
+                this.driver.quit();
+            }
+
+        }
+    }
+
+
+
 
 
 

@@ -3,6 +3,7 @@ package pages;
 
 import components.dpopdownlkmenu.DropdawnLKMenu;
 import components.dropdownmenuCCL.FieldDropdownMenu;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -69,6 +70,9 @@ public class PageInputPesonalInfo extends FieldDropdownMenu {
     @FindBy (css = "p[class ='lk-cv-block__header']")
     private WebElement contactForScroll;
 
+//    @FindBy(xpath = "//button[contains(@class,'lk-cv-block__action')][1]")
+//    private WebElement deleteContact;
+
 
 
 
@@ -99,7 +103,7 @@ public class PageInputPesonalInfo extends FieldDropdownMenu {
         clickToElement(fieldChangeAMassager);
         explicitWait(contactWhatsapp);
         clickToElement(contactWhatsapp);
-        fillField(inputNumber, "89218466331");
+        fillField(inputNumber, "89999999999");
 
     }
     public void clickSave(){
@@ -110,4 +114,15 @@ public class PageInputPesonalInfo extends FieldDropdownMenu {
         driver.quit();
     }
 
-}
+    public void CheckInputData(){
+        Assertions.assertEquals(fname.getText(),"Евгений");
+        Assertions.assertEquals(lname.getText(),"Чистяков");
+        Assertions.assertEquals(lNAmeLatin.getText(),"Evgenii");
+        Assertions.assertEquals(idBlogName.getText(),"Евгений");
+        Assertions.assertEquals(changeCountry.getText(),"Россия");
+        Assertions.assertEquals(inputNumber.getText(),"89999999999");
+
+    }
+
+    }
+

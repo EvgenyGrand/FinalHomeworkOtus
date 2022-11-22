@@ -1,4 +1,4 @@
-package components;
+package components.cleanbrowser;
 
 import org.openqa.selenium.WebDriver;
 import pages.AbsBasePages;
