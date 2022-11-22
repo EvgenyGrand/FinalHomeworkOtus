@@ -27,7 +27,7 @@ public class CheckPrivateAccount_Test {
     @BeforeEach
     public void initDriver() throws BrowserNotSupportException {
 
-        driver = webDriverFactory.getDriver(DriverData.CHROME, null);
+         driver = webDriverFactory.getDriver(DriverData.CHROME, null);
 
     }
 
