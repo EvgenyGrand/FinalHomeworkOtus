@@ -33,7 +33,7 @@ public class CheckPrivateAccount_Test {
 
     @Test
     public void testCheckPrivateAccount() throws InterruptedException, BrowserNotSupportException {
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         MainPage mainPage = new MainPage(driver);
         StartModalWindow startModalWindow = new StartModalWindow(driver);
         DropdawnLKMenu changePersonal = new DropdawnLKMenu(driver);
@@ -49,7 +49,13 @@ public class CheckPrivateAccount_Test {
         inputPesonalInfo.clickSave();
         inputPesonalInfo.closeSession();
         driver = webDriverFactory.getDriver(DriverData.CHROME, null);
+        mainPage = new MainPage(driver);
+        startModalWindow = new StartModalWindow(driver);
+        changePersonal = new DropdawnLKMenu(driver);
         mainPage.open();
+        mainPage.clickRegistrationButton();
+        startModalWindow.inputCreds();
+        changePersonal.gotoPersonalAccount();
 
 
 

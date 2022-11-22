@@ -32,6 +32,7 @@ public abstract class AbsBasePages {
 
     public void open() {
         driver.get(hostname);
+
     }
 
     public void explicitWait(WebElement element) {

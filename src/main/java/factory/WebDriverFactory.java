@@ -16,10 +16,11 @@ public class WebDriverFactory {
         switch (driverData) {
             case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-fullscreen");
                 if (options!=null){
                     chromeOptions.merge(options);
                 }
-                return new ChromeDriver();
+                return new ChromeDriver(chromeOptions);
 
             default:
                 throw new BrowserNotSupportException(driverData);
