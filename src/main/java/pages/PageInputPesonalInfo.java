@@ -115,12 +115,12 @@ public class PageInputPesonalInfo extends FieldDropdownMenu {
     }
 
     public void CheckInputData(){
-        Assertions.assertEquals(fname.getText(),"Евгений");
-        Assertions.assertEquals(lname.getText(),"Чистяков");
-        Assertions.assertEquals(lNAmeLatin.getText(),"Evgenii");
-        Assertions.assertEquals(idBlogName.getText(),"Евгений");
-        Assertions.assertEquals(changeCountry.getText(),"Россия");
-        Assertions.assertEquals(inputNumber.getText(),"89999999999");
+        Assertions.assertEquals("Евгений",fname.getText());
+        Assertions.assertEquals("Чистяков",lname.getText());
+        Assertions.assertEquals("Evgenii",lNAmeLatin.getText());
+        Assertions.assertEquals("Евгений",idBlogName.getText());
+        Assertions.assertEquals("Россия",changeCountry.getText());
+        Assertions.assertEquals("89999999999",inputNumber.getText());
 
     }
 
